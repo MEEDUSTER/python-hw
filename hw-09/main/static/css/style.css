@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #222;
+    background: #f4f4f4;
+}
+
+.wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 16px 40px;
+}
+
+header {
+    background: #1f4b3a;
+    color: #fff;
+    padding: 16px 0 0;
+}
+
+header h1 {
+    margin: 0 0 12px;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+header h1 a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+nav a {
+    color: #e8f0ec;
+    text-decoration: none;
+    padding: 10px 12px;
+    display: inline-block;
+}
+
+nav a:hover,
+nav a.active {
+    background: #16382c;
+    color: #fff;
+}
+
+main {
+    background: #fff;
+    padding: 24px;
+    margin-top: 16px;
+    border: 1px solid #ddd;
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 22px;
+}
+
+form p {
+    margin: 0 0 14px;
+}
+
+label {
+    display: block;
+    margin-bottom: 4px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="email"],
+textarea {
+    width: 100%;
+    max-width: 420px;
+    box-sizing: border-box;
+    padding: 6px 8px;
+    font-size: 16px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li label {
+    display: inline;
+}
+
+button,
+input[type="submit"] {
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.errorlist {
+    color: #a40000;
+    margin: 4px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.hint {
+    color: #555;
+    font-size: 14px;
+}
+
+.ok {
+    background: #e7f6ec;
+    border: 1px solid #b7dfc4;
+    padding: 12px 14px;
+}
+
+.fail {
+    background: #fdecea;
+    border: 1px solid #f5c2c0;
+    padding: 12px 14px;
+}
+
+.result {
+    background: #eef6f2;
+    border: 1px solid #c5ddd0;
+    padding: 12px 14px;
+}
+
+dl {
+    margin: 0;
+}
+
+dt {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+dd {
+    margin: 2px 0 0;
+}
+
+.tasks {
+    padding-left: 20px;
+}

@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Форми{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<header>
+    <div class="wrap">
+        <h1><a href="{% url 'index' %}">Форми</a></h1>
+        <nav>
+            <a href="{% url 'index' %}" {% if page == "index" %}class="active"{% endif %}>Головна</a>
+            <a href="{% url 'login' %}" {% if page == "login" %}class="active"{% endif %}>Вхід</a>
+            <a href="{% url 'numbers' %}" {% if page == "numbers" %}class="active"{% endif %}>Три числа</a>
+            <a href="{% url 'register' %}" {% if page == "register" %}class="active"{% endif %}>Реєстрація</a>
+            <a href="{% url 'programmer_day' %}" {% if page == "programmer_day" %}class="active"{% endif %}>День програміста</a>
+        </nav>
+    </div>
+</header>
+<div class="wrap">
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</div>
+</body>
+</html>

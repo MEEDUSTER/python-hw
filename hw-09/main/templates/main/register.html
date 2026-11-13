@@ -1,0 +1,23 @@
+{% extends "main/layout.html" %}
+
+{% block title %}Реєстрація{% endblock %}
+
+{% block content %}
+<h2>Реєстрація в інтернет-магазині</h2>
+{% if data %}
+<div class="result">
+    <h3>Дані реєстрації</h3>
+    <dl>
+        {% for label, value in data.items %}
+            <dt>{{ label }}</dt>
+            <dd>{{ value }}</dd>
+        {% endfor %}
+    </dl>
+</div>
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Зареєструватися</button>
+</form>
+{% endblock %}

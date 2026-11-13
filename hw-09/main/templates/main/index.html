@@ -1,0 +1,13 @@
+{% extends "main/layout.html" %}
+
+{% block title %}Головна — Форми{% endblock %}
+
+{% block content %}
+<h2>Завдання з формами</h2>
+<ul class="tasks">
+    <li><a href="{% url 'login' %}">Завдання 1. Вхід на сайт</a></li>
+    <li><a href="{% url 'numbers' %}">Завдання 2. Мінімум, максимум і середнє з трьох чисел</a></li>
+    <li><a href="{% url 'register' %}">Завдання 3. Реєстрація в інтернет-магазині</a></li>
+    <li><a href="{% url 'programmer_day' %}">Завдання 4. День програміста</a></li>
+</ul>
+{% endblock %}

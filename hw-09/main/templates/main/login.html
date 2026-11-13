@@ -1,0 +1,17 @@
+{% extends "main/layout.html" %}
+
+{% block title %}Вхід на сайт{% endblock %}
+
+{% block content %}
+<h2>Вхід на сайт</h2>
+<p class="hint">Для перевірки: логін <b>admin</b>, пароль <b>admin123</b> (адміністратор);
+логін <b>user</b>, пароль <b>user123</b> (користувач).</p>
+{% if message %}
+<p class="{% if ok %}ok{% else %}fail{% endif %}">{{ message }}</p>
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Увійти</button>
+</form>
+{% endblock %}

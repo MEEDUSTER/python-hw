@@ -1,0 +1,16 @@
+{% extends "main/layout.html" %}
+
+{% block title %}День програміста{% endblock %}
+
+{% block content %}
+<h2>День програміста</h2>
+<p>Введіть рік, і програма покаже дату 256-го дня цього року.</p>
+{% if result %}
+<p class="result">{{ result }}</p>
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Показати дату</button>
+</form>
+{% endblock %}

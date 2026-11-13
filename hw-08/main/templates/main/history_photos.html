@@ -1,0 +1,26 @@
+{% extends "main/layout.html" %}
+
+{% block title %}Історичні фотографії — Вінниця{% endblock %}
+
+{% block content %}
+<h2>Історичні фотографії міста</h2>
+<p class="subnav">
+    <a href="{% url 'history' %}">Загальна інформація</a>
+    <a href="{% url 'history_people' %}">Відомі мешканці</a>
+    <a href="{% url 'history_photos' %}">Історичні фотографії</a>
+</p>
+<div class="photos">
+    <figure>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Vinnitsa-Dominician-costel-1900th.png?width=800" alt="Костел домініканців на початку XX століття">
+        <figcaption>Колишній костел монастиря домініканців, початок XX століття. Зараз — Свято-Преображенський кафедральний собор. Джерело: Wikimedia Commons.</figcaption>
+    </figure>
+    <figure>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Vinnitsa_Dominician_costel_1758.jpg?width=800" alt="Преображенський собор у Вінниці">
+        <figcaption>Та сама споруда 1758 року вже в наш час. Фото: Sergiy Klymenko, 2004, CC BY-SA. Джерело: Wikimedia Commons.</figcaption>
+    </figure>
+    <figure>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Old_Tower_night_winter_2011_G1.jpg?width=800" alt="Стара водонапірна вежа у Вінниці">
+        <figcaption>Колишня водонапірна вежа в центрі Вінниці — один із символів міста. Фото: George Chernilevsky, 2011. Джерело: Wikimedia Commons.</figcaption>
+    </figure>
+</div>
+{% endblock %}

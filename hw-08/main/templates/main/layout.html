@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Вінниця{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<header>
+    <div class="wrap">
+        <h1><a href="{% url 'home' %}">Вінниця</a></h1>
+        <nav>
+            <a href="{% url 'home' %}" {% if section == "home" %}class="active"{% endif %}>Головна</a>
+            <a href="{% url 'news' %}" {% if section == "news" %}class="active"{% endif %}>Новини міста</a>
+            <a href="{% url 'management' %}" {% if section == "management" %}class="active"{% endif %}>Керівництво міста</a>
+            <a href="{% url 'facts' %}" {% if section == "facts" %}class="active"{% endif %}>Факти про місто</a>
+            <a href="{% url 'contacts' %}" {% if section == "contacts" %}class="active"{% endif %}>Контактні телефони</a>
+            <a href="{% url 'history' %}" {% if section == "history" %}class="active"{% endif %}>Історія</a>
+            <a href="{% url 'history_people' %}" {% if section == "history_people" %}class="active"{% endif %}>Відомі мешканці</a>
+            <a href="{% url 'history_photos' %}" {% if section == "history_photos" %}class="active"{% endif %}>Історичні фото</a>
+        </nav>
+    </div>
+</header>
+<div class="wrap">
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</div>
+<footer>
+    <div class="wrap">Інформація про місто Вінниця</div>
+</footer>
+</body>
+</html>

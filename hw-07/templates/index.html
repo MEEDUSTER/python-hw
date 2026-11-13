@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Товари — Магазин{% endblock %}
+
+{% block content %}
+<h1>Товари</h1>
+
+<div class="products">
+    {% for product in products %}
+        <a class="card" href="{{ url_for('product_detail', product_id=product.id) }}">
+            <img src="{{ product.image }}" alt="{{ product.title }}">
+            <h2>{{ product.title }}</h2>
+            <p class="price">{{ "%.2f"|format(product.price) }} грн</p>
+            <p class="rating">Оцінка: {{ product.rating }} / 5</p>
+        </a>
+    {% else %}
+        <p>Товарів поки немає.</p>
+    {% endfor %}
+</div>
+{% endblock %}

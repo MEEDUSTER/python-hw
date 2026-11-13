@@ -1,0 +1,13 @@
+{% extends "main/layout.html" %}
+
+{% block title %}Видалити контакт — Телефонна книга{% endblock %}
+
+{% block content %}
+<h2>Видалити контакт</h2>
+<p>Видалити контакт {{ contact.first_name }} {{ contact.last_name }}?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Видалити</button>
+    <a href="{% url 'contact_list' %}">Скасувати</a>
+</form>
+{% endblock %}

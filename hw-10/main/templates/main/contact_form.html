@@ -1,0 +1,13 @@
+{% extends "main/layout.html" %}
+
+{% block title %}{% if is_edit %}Змінити контакт{% else %}Додати контакт{% endif %} — Телефонна книга{% endblock %}
+
+{% block content %}
+<h2>{% if is_edit %}Змінити контакт{% else %}Додати контакт{% endif %}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if is_edit %}Зберегти{% else %}Додати{% endif %}</button>
+    <a href="{% url 'contact_list' %}">Скасувати</a>
+</form>
+{% endblock %}

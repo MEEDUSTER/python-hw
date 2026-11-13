@@ -1,0 +1,52 @@
+{% extends "main/layout.html" %}
+
+{% block title %}Усі контакти — Телефонна книга{% endblock %}
+
+{% block content %}
+<h2>Усі контакти</h2>
+
+<form class="search" method="get">
+    <label for="q">Пошук за ім'ям або прізвищем</label>
+    <input type="text" id="q" name="q" value="{{ query }}" placeholder="Ім'я або прізвище">
+    <button type="submit">Шукати</button>
+    {% if query %}
+    <a href="{% url 'contact_list' %}">Скинути</a>
+    {% endif %}
+</form>
+
+{% if contacts %}
+<table>
+    <thead>
+        <tr>
+            <th>Ім'я</th>
+            <th>Прізвище</th>
+            <th>Email</th>
+            <th>Контактний телефон</th>
+            <th>Примітки</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for contact in contacts %}
+        <tr>
+            <td>{{ contact.first_name }}</td>
+            <td>{{ contact.last_name }}</td>
+            <td>{{ contact.email }}</td>
+            <td>{{ contact.phone }}</td>
+            <td>{{ contact.notes }}</td>
+            <td class="actions">
+                <a href="{% url 'contact_edit' contact.pk %}">Змінити</a>
+                <a href="{% url 'contact_delete' contact.pk %}">Видалити</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    {% if query %}
+    <p class="hint">Нічого не знайдено за запитом «{{ query }}».</p>
+    {% else %}
+    <p class="hint">Контактів ще немає. <a href="{% url 'contact_add' %}">Додати контакт</a></p>
+    {% endif %}
+{% endif %}
+{% endblock %}

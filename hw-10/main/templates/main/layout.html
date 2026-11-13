@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Телефонна книга{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<header>
+    <div class="wrap">
+        <h1><a href="{% url 'contact_list' %}">Телефонна книга</a></h1>
+        <nav>
+            <a href="{% url 'contact_list' %}" {% if page == "list" %}class="active"{% endif %}>Усі контакти</a>
+            <a href="{% url 'contact_add' %}" {% if page == "add" %}class="active"{% endif %}>Додати контакт</a>
+        </nav>
+    </div>
+</header>
+<div class="wrap">
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</div>
+</body>
+</html>

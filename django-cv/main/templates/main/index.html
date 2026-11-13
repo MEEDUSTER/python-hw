@@ -1,0 +1,153 @@
+{% extends "main/layout.html" %}
+
+{% block title %}{{ nickname }} — резюме{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="container">
+        <div class="row g-5 g-xl-5 align-items-center">
+            <div class="col-lg-7">
+                <p class="hero-kicker">Персональне резюме</p>
+                <h1 class="hero-name">{{ nickname }}</h1>
+                <p class="hero-real-name">{{ full_name }}</p>
+                <p class="hero-role">
+                    {% for r in roles %}{{ r }}{% if not forloop.last %}  /  {% endif %}{% endfor %}
+                </p>
+                <p class="hero-city">{{ city }}</p>
+                <ul class="hero-contacts">
+                    <li><a href="mailto:{{ email }}">{{ email }}</a></li>
+                    <li><a href="tel:{{ phone }}">{{ phone_display }}</a></li>
+                </ul>
+                <a class="btn-soft" href="{{ github_url }}" target="_blank" rel="noopener">
+                    <span>GitHub</span>
+                </a>
+            </div>
+            <div class="col-lg-5">
+                <figure class="hero-media">
+                    <div class="hero-media-frame">
+                        <img src="{{ photo_url }}" alt="{{ full_name }}" class="avatar">
+                    </div>
+                    <figcaption>{{ nickname }} // {{ city }}</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="section-block">
+    <div class="container">
+        <div class="section-head">
+            <span class="section-index">/// 01</span>
+            <h2 class="section-title">Про себе</h2>
+        </div>
+        <div class="card card-custom p-4 p-lg-5">
+            <p class="about-text">{{ about }}</p>
+            <div class="row g-4 g-lg-5">
+                <div class="col-md-6">
+                    <h3 class="section-label">Особисті якості</h3>
+                    <div class="d-flex flex-wrap gap-2">
+                        {% for q in qualities %}<span class="badge badge-soft">{{ q }}</span>{% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="section-label">Професійна мета</h3>
+                    <p class="mb-0 goal-text">{{ goal }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="education" class="section-block">
+    <div class="container">
+        <div class="section-head">
+            <span class="section-index">/// 02</span>
+            <h2 class="section-title">Освіта</h2>
+        </div>
+        <div class="card card-custom p-4 p-lg-5">
+            <div class="d-flex flex-column flex-sm-row justify-content-between gap-3">
+                <div>
+                    <h3 class="project-title mb-2">{{ education.institution }}</h3>
+                    <p class="mb-0 meta-line">{{ education.specialty }}</p>
+                </div>
+                {% if education.years %}
+                <span class="badge badge-soft align-self-start">{{ education.years }}</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="skills" class="section-block">
+    <div class="container">
+        <div class="section-head">
+            <span class="section-index">/// 03</span>
+            <h2 class="section-title">Навички</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="card card-custom p-4 h-100">
+                    <h3 class="skill-heading">Мови програмування</h3>
+                    <div class="d-flex flex-wrap gap-2">
+                        {% for s in programming_languages %}<span class="badge badge-soft">{{ s }}</span>{% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card card-custom p-4 h-100">
+                    <h3 class="skill-heading">Інструменти</h3>
+                    <div class="d-flex flex-wrap gap-2">
+                        {% for s in software %}<span class="badge badge-soft">{{ s }}</span>{% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card card-custom p-4 h-100">
+                    <h3 class="skill-heading">Мови</h3>
+                    <ul class="list-clean">
+                        {% for l in foreign_languages %}
+                            <li><strong>{{ l.name }}</strong> — {{ l.level }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="section-block">
+    <div class="container">
+        <div class="section-head">
+            <span class="section-index">/// 04</span>
+            <h2 class="section-title">Проєкти</h2>
+        </div>
+        <div class="row g-4">
+            {% for p in projects %}
+            <div class="col-lg-6">
+                <div class="card card-custom h-100 p-4 p-lg-4">
+                    <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
+                        <div>
+                            <h3 class="project-title mb-1">{{ p.title }}</h3>
+                            <p class="mb-0 meta-line">{{ p.subtitle }}</p>
+                        </div>
+                        {% if p.link %}
+                        <a href="{{ p.link }}" target="_blank" rel="noopener"
+                           class="btn-soft btn-compact"><span>GitHub</span></a>
+                        {% endif %}
+                    </div>
+                    <p class="card-copy">{{ p.description }}</p>
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        {% for t in p.technologies %}<span class="badge badge-soft badge-soft-2">{{ t }}</span>{% endfor %}
+                    </div>
+                    <p class="project-result">
+                        <strong>Результат</strong> {{ p.result }}
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}
